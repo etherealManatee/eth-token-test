@@ -10,6 +10,12 @@ async function main() {
     await token.deployed()
     
     console.log("HZSToken address:", token.address)
+
+    const Tokenlock = await ethers.getContractFactory("HZSTokenTimelock")
+    const tokenlock = await Tokenlock.deploy(deployer.address)
+    await tokenlock.deployed()
+    
+    console.log("HZSTokenTimelock address:", tokenlock.address)
 }
 
 main()
